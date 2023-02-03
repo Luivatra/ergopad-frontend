@@ -42,8 +42,8 @@ import {
   };
   
   const pairBaseCurrencyMapper = {
-    ergopad_sigusd: ' SigUSD',
-    ergopad_erg: ' Erg',
+    ergopad_sigusd: 'sigusd',
+    ergopad_erg: 'erg',
   };
   
   const initHistoryData = [
@@ -154,7 +154,7 @@ import {
       const getData = async () => {
         try {
           const res = await axios.get(
-            `${process.env.API_URL}/asset/ohlcv/erg/ergopad/${stepUnitMapper[stepUnit].stepSize}/${stepUnitMapper[stepUnit].stepUnit}/${new Date(Date.now()-(400000*stepUnitMapper[stepUnit].inSeconds)).toISOString().slice(0, 10)}/${new Date(Date.now()+86400000).toISOString().slice(0, 10)}?offset=0&limit=500`
+            `${process.env.API_URL}/asset/ohlcv/${pairBaseCurrencyMapper[pair]}/ergopad/${stepUnitMapper[stepUnit].stepSize}/${stepUnitMapper[stepUnit].stepUnit}/${new Date(Date.now()-(400000*stepUnitMapper[stepUnit].inSeconds)).toISOString().slice(0, 10)}/${new Date(Date.now()+86400000).toISOString().slice(0, 10)}?offset=0&limit=500`
           );
           setRawData(res.data);        
         } catch (e) {
