@@ -11,3 +11,6 @@ pages/dashboardrechart.jsx
 .eslintrc.json
 .vscode
 .env.local
+.yarn
+.pnp*
+.yarnrc.yml

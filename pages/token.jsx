@@ -23,6 +23,11 @@ import theme from '@styles/theme';
 import MuiNextLink from '@components/MuiNextLink';
 import PriceChart from '@components/token/PriceChart';
 import axios from 'axios';
+import dynamic from "next/dynamic";
+
+const CandleStickChart = dynamic(() => import("@components/token/CandleStickChart"), {
+    ssr: false
+  });
 
 const TOKEN_ID =
   'd71693c49a84fbbecd4908c94813b46514b18b67a99952dc1e6e4791556de413';
@@ -203,7 +208,7 @@ const Token = () => {
 
             <Grid item xs={12} md={12}>
                 <Paper sx={paperStyle}>
-                    <PriceChart />
+                    <CandleStickChart />
                 </Paper>
             </Grid>
 
